@@ -1,3 +1,38 @@
+---
+
+### README para `incident-web` (Frontend)
+
+Este archivo destaca la experiencia de usuario y el diseño moderno que aplicamos.
+
+```markdown
+# 🌐 Incident Management Web (Next.js + Tailwind)
+
+Dashboard moderno para la gestión y monitorización de incidentes técnicos, enfocado en la claridad visual y eficiencia operativa.
+
+## 🛠️ Stack Tecnológico
+- **Framework:** Next.js (App Router).
+- **Estilos:** Tailwind CSS (Clean UI Design).
+- **Lenguaje:** TypeScript.
+- **Testing:** Jest + React Testing Library.
+
+## 🎨 Características de UX/UI
+- **Dashboard de Métricas:** Visualización en tiempo real de incidentes totales, críticos y abiertos.
+- **Gestión de Estados:** Badges semánticos para priorización rápida (Rojo para High, Ámbar para Medium).
+- **Timeline de Auditoría:** Línea de tiempo interactiva que consume datos de MongoDB para mostrar el historial técnico.
+
+## 🔐 Configuración
+Variable de entorno requerida:
+- `NEXT_PUBLIC_API_URL=http://localhost:5000/api`
+
+## 🚀 Cómo Correr Localmente
+1. `npm install`
+2. `npm run dev`
+3. Acceder a `http://localhost:3000`
+
+## 🧪 Calidad y Automatización
+- **Pruebas:** `npm test` para validar la renderización de componentes.
+- **CI:** GitHub Action configurado para ejecutar linter y tests en cada envío de código.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
