@@ -1,5 +1,8 @@
 ---
 
+<img width="1063" height="409" alt="image" src="https://github.com/user-attachments/assets/83a347ad-bba4-4b27-9be4-0c69991fa9f2" />
+
+
 ### README para `incident-web` (Frontend)
 
 Este archivo destaca la experiencia de usuario y el diseño moderno que aplicamos.
