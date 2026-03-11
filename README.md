@@ -1,7 +1,6 @@
 ---
 
-<img width="1063" height="409" alt="image" src="https://github.com/user-attachments/assets/83a347ad-bba4-4b27-9be4-0c69991fa9f2" />
-
+<img width="1308" height="586" alt="image" src="https://github.com/user-attachments/assets/24a724e4-badf-46ed-8ba3-196e49240b55" />
 
 ### README para `incident-web` (Frontend)
 
