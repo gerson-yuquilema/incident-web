@@ -1,3 +1,5 @@
+<img width="1308" height="586" alt="image" src="https://github.com/user-attachments/assets/24a724e4-badf-46ed-8ba3-196e49240b55" />
+
 # 🌐 Incident Management Web (Next.js + Tailwind)
 
 Dashboard moderno para la gestión y monitorización de incidentes técnicos, enfocado en la claridad visual y la eficiencia operativa.
