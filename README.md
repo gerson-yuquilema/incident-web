@@ -1,71 +1,60 @@
----
-
-### README para `incident-web` (Frontend)
-
-Este archivo destaca la experiencia de usuario y el diseño moderno que aplicamos.
-
-```markdown
 # 🌐 Incident Management Web (Next.js + Tailwind)
 
-Dashboard moderno para la gestión y monitorización de incidentes técnicos, enfocado en la claridad visual y eficiencia operativa.
+Dashboard moderno para la gestión y monitorización de incidentes técnicos, enfocado en la claridad visual y la eficiencia operativa.
 
 ## 🛠️ Stack Tecnológico
-- **Framework:** Next.js (App Router).
+- **Framework:** Next.js 14+ (App Router).
 - **Estilos:** Tailwind CSS (Clean UI Design).
-- **Lenguaje:** TypeScript.
+- **Lenguaje:** TypeScript (Tipado estricto).
 - **Testing:** Jest + React Testing Library.
 
-## 🎨 Características de UX/UI
-- **Dashboard de Métricas:** Visualización en tiempo real de incidentes totales, críticos y abiertos.
-- **Gestión de Estados:** Badges semánticos para priorización rápida (Rojo para High, Ámbar para Medium).
-- **Timeline de Auditoría:** Línea de tiempo interactiva que consume datos de MongoDB para mostrar el historial técnico.
+## 🏗️ Decisiones de Arquitectura y Tradeoffs
+- **Server Components vs Client Components:** Se utilizó el nuevo App Router de Next.js. Las páginas principales se benefician del renderizado en servidor (SSR) para SEO y performance inicial, mientras que los componentes interactivos (como la tabla con filtros y paginación) utilizan `'use client'` para manejar el estado dinámico sin recargar la página.
+- **Tailwind CSS:** Se eligió Tailwind en lugar de librerías de componentes prefabricados (como Material UI o Bootstrap) para tener control absoluto sobre el diseño personalizado del Dashboard y reducir el peso del bundle final.
+- **Jerarquía Visual:** Se implementaron *badges* semánticos (Rojo para `HIGH`, Ámbar para `MEDIUM`, Esmeralda para `LOW`) para reducir la carga cognitiva del operador del sistema al momento de priorizar incidentes.
 
-## 🔐 Configuración
-Variable de entorno requerida:
-- `NEXT_PUBLIC_API_URL=http://localhost:5000/api`
+## 🔐 Variables de Entorno Necesarias
+Para conectar este frontend con la API, configure el archivo `.env.local` en la raíz del proyecto (o use las inyectadas por Docker):
 
-## 🚀 Cómo Correr Localmente
-1. `npm install`
-2. `npm run dev`
-3. Acceder a `http://localhost:3000`
+| Variable | Descripción | Valor por defecto |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_API_URL` | URL base de la API del Backend | `http://localhost:5000/api` |
 
-## 🧪 Calidad y Automatización
-- **Pruebas:** `npm test` para validar la renderización de componentes.
-- **CI:** GitHub Action configurado para ejecutar linter y tests en cada envío de código.
+## 🚀 Cómo Correr (Pasos Exactos)
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
+### Opción 1: Vía Docker Compose (Recomendada)
+Este proyecto está orquestado junto con el backend en el repositorio `incident-infra`.
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Desde el repositorio de infraestructura
+docker compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Opción 2: Desarrollo Local (Standalone)
+Si desea correr solo el frontend para desarrollo:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Instalar dependencias:
+´´´bash
+npm install
+´´´
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Levantar el servidor de desarrollo:
+´´´bash
+npm run dev
+´´´
 
-## Learn More
+### 3. Acceder en el navegador a:
+´´´bash
+http://localhost:3000
+´´´
 
-To learn more about Next.js, take a look at the following resources:
+🧪 Pruebas y Calidad
+Para cumplir con los estándares de calidad y los requisitos técnicos de la prueba:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Unit/Integration Tests: Ejecute npm test para correr la suite de Jest y validar que los componentes de la interfaz, el ruteo y las tablas se renderizan correctamente basándose en datos mockeados.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+CI/CD: El repositorio cuenta con GitHub Actions configurado para validar el Linter y los Tests en cada Pull Request.
 
-## Deploy on Vercel
+📝 Pendientes (Roadmap)
+Actualizaciones en Tiempo Real: Integración de WebSockets (ej. SignalR o Socket.io) para reflejar los cambios de estado de los incidentes en el dashboard sin necesidad de refrescar o paginar.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Autenticación: Proteger la vista de "Crear Incidente" utilizando un flujo de JWT (JSON Web Tokens).
