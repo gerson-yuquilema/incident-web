@@ -35,19 +35,19 @@ docker compose up --build
 Si desea correr solo el frontend para desarrollo:
 
 ### 1. Instalar dependencias:
-´´´bash
+```bash
 npm install
-´´´
+```
 
 ### 2. Levantar el servidor de desarrollo:
-´´´bash
+```bash
 npm run dev
-´´´
+```
 
 ### 3. Acceder en el navegador a:
-´´´bash
+```bash
 http://localhost:3000
-´´´
+```
 
 🧪 Pruebas y Calidad
 Para cumplir con los estándares de calidad y los requisitos técnicos de la prueba:
